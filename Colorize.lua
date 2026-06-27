@@ -248,6 +248,14 @@ local function color_has_opacity(color)
 end
 
 local function sort_by_lightness(a, b)
+    local rgb1 = Color(a)
+    local rgb2 = Color(b)
+    local l1, _, _ = rgb_to_lab(rgb1.red, rgb1.green, rgb1.blue)
+    local l2, _, _ = rgb_to_lab(rgb2.red, rgb2.green, rgb2.blue)
+    return l1 < l2
+end
+
+local function sort_by_grayscale(a, b)
     local l1 = Color(color_to_grayscale(a)).lightness
     local l2 = Color(color_to_grayscale(b)).lightness
     return l1 < l2
@@ -423,8 +431,8 @@ end
 local function build_grayscale_lut()
     local grayscale_lut = {}
 
-    table.sort(src_colors, sort_by_lightness)
-    table.sort(dst_colors, sort_by_lightness)
+    table.sort(src_colors, sort_by_grayscale)
+    table.sort(dst_colors, sort_by_grayscale)
 
     for _, src_color in ipairs(src_colors) do
         grayscale_lut[src_color] = color_to_grayscale(src_color)
