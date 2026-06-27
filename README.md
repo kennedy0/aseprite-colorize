@@ -1,2 +1,4 @@
 # aseprite-colorize
-Colorize tool for Aseprite
+This Colorize tool for Aseprite lets you quickly colorize your sprites.
+
+![](img/modes.gif)
