@@ -4,11 +4,11 @@ Colorize is an Aseprite script that helps you quickly recolor your sprites.
 ![](img/modes.gif)
 
 ## How does it work?
-Colorize matches each of the colors in your sprite with a color in your palette.
-The method used for matching the colors depends on the mode and settings.
-It then recolors your sprite, substituting each color form the sprite with its corresponding palette color.
+Colorize matches each color in your sprite with a color in your palette.
+The method used for matching the colors depends on the mode and options.
+It then recolors your sprite, substituting each color from the sprite with its corresponding palette color.
 
-By default, all colors in the palette are used, but by selecting one more more colors in the palette, you can limit the operation to just those colors.
+By default, all colors in the palette are used, but by selecting one more more colors in the palette you can limit the operation to just those colors.
 
 ## Colorize Mode
 
@@ -39,8 +39,8 @@ Results can vary greatly depending on the colors in the sprite and the palette.
   - Redmean: Colors are matched with weight given to the red and blue components depending on the average amount of red in both colors.
   - Delta E: Colors are matched using the closest human-perceptible color.
 - Bit Depth: The bit depth used when calculating the color.
-  - 8-bit: Color distance is calculated with full 8-bit color.
-  - 5-bit: Color distance is calculated with reduce 5-bit colors. This is the bit depth used natively when Aseprite converts from RGB to Indexed color mode.
+  - 8-bit: Color distance is calculated with full 8-bit colors.
+  - 5-bit: Color distance is calculated with reduced 5-bit colors. This is the bit depth used natively when Aseprite converts from RGB to Indexed color mode.
 
 ## Grayscale Mode
 
