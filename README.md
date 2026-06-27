@@ -8,6 +8,8 @@ Colorize matches each of the colors in your sprite with a color in your palette.
 The method used for matching the colors depends on the mode and settings.
 It then recolors your sprite, substituting each color form the sprite with its corresponding palette color.
 
+By default, all colors in the palette are used, but by selecting one more more colors in the palette, you can limit the operation to just those colors.
+
 ## Colorize Mode
 
 ![](img/colorize_example.png)
