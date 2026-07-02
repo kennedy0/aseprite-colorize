@@ -609,40 +609,19 @@ local function show_dialog()
     local function on_canvas_paint(ev)
         local gc = ev.context -- GraphicsContext
 
-        -- Draw background
-        if #src_colors == 1 then
-            gc.color = src_colors[1]
-            gc:fillRect(Rectangle(0, 0, gc.width, gc.height))
-        elseif #src_colors > 1 then
-            gc.color = src_colors[1]
-            gc:fillRect(Rectangle(0, 0, gc.width, gc.height))
-            gc.color = src_colors[#src_colors]
-            gc:fillRect(Rectangle(math.ceil(gc.width / 2), 0, math.floor(gc.width / 2), gc.height))
-        end
-
-        -- Draw color swatches
         local x = 0
         local y = 0
         local w = math.max(math.floor(gc.width / #src_colors), 1)
         local h = math.floor(gc.height / 2)
         local x_remainder = gc.width - (w * #src_colors)
-        local first_w = w + math.ceil(x_remainder / 2)
-        local last_w = w + math.floor(x_remainder / 2)
+        x = math.floor(x_remainder / 2)
 
-        for i, color in ipairs(src_colors) do
-            local swatch_w
-            if i == 1 then
-                swatch_w = first_w
-            elseif i == #src_colors then
-                swatch_w = last_w
-            else
-                swatch_w = w
-            end
+        for _, color in ipairs(src_colors) do
             gc.color = color
-            gc:fillRect(Rectangle(x, y, swatch_w, h))
+            gc:fillRect(Rectangle(x, y, w, h))
             gc.color = lut[color]
-            gc:fillRect(Rectangle(x, y + h, swatch_w, h))
-            x = x + swatch_w
+            gc:fillRect(Rectangle(x, y + h, w, h))
+            x = x + w
         end
     end
 
